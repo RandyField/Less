@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>led样式重写 尝试</title>
+    <link rel="stylesheet" href="ledstyle.css">
+    <script src="http://cdn.bootcss.com/jquery/1.5.1/jquery.js"></script>
+    <!--<script src="./led显示_files/jquery.kxbdmarquee.min.js.下载" type="text/javascript"></script>-->
+    <script>
+//        function scroll_news() {
+//            $('#scroll_row').kxbdMarquee({
+//                direction: 'left',
+//                isEqual: false
+//            });
+//        }
+
+        function scroll_car() {
+            $(".car_scroll").each(function () {
+                if ($(this).find('.start_scroll').height() > $(this).height()) {
+                    startmarquee(20, 60, 1, this);
+                }
+            });
+        }
+
+        function startmarquee(lh, speed, delay, selector) {
+            var t;
+            var o = $(selector).get(0);
+            o.innerHTML += o.innerHTML;
+
+            function start() {
+                t = setInterval(scrolling, speed);
+                o.scrollTop += 2;
+            }
+
+            function scrolling() {
+                if (o.scrollTop % lh != 0) {
+                    o.scrollTop += 1;
+                    if (o.scrollTop >= o.scrollHeight / 2)
+                        o.scrollTop = 0;
+                }
+                else {
+                    clearInterval(t);
+                    setTimeout(start, delay);
+                }
+            }
+
+            setTimeout(start, delay);
+        }
+
+
+        function setCss() {
+            var w = $(".container").width();
+            if (w > 1000) {
+                $("body").css("font-size", "50%");
+            }
+            else if (w < 1000 ) {
+                var percent = (0.5 - (1000 - w) / 1000) * 100;
+                var a = percent + "%";
+                $("body").css("font-size", a);
+            }
+        }
+
+//        function show_cur_times() {
+//            //获取当前日期
+//            var date_time = new Date();
+//            //定义星期
+//            var week;
+//            //switch判断
+//            switch (date_time.getDay()) {
+//                case 1:
+//                    week = "星期一";
+//                    break;
+//                case 2:
+//                    week = "星期二";
+//                    break;
+//                case 3:
+//                    week = "星期三";
+//                    break;
+//                case 4:
+//                    week = "星期四";
+//                    break;
+//                case 5:
+//                    week = "星期五";
+//                    break;
+//                case 6:
+//                    week = "星期六";
+//                    break;
+//                default:
+//                    week = "星期天";
+//                    break;
+//            }
+//            //年
+//            var year = date_time.getFullYear();
+//            //判断小于10，前面补0
+//            if (year < 10) {
+//                year = "0" + year;
+//            }
+//            //月
+//            var month = date_time.getMonth() + 1;
+//            //判断小于10，前面补0
+//            if (month < 10) {
+//                month = "0" + month;
+//            }
+//            //日
+//            var day = date_time.getDate();
+//            //判断小于10，前面补0
+//            if (day < 10) {
+//                day = "0" + day;
+//            }
+//            //时
+//            var hours = date_time.getHours();
+//            //判断小于10，前面补0
+//            if (hours < 10) {
+//                hours = "0" + hours;
+//            }
+//            //分
+//            var minutes = date_time.getMinutes();
+//            //判断小于10，前面补0
+//            if (minutes < 10) {
+//                minutes = "0" + minutes;
+//            }
+//            //秒
+//            var seconds = date_time.getSeconds();
+//            //判断小于10，前面补0
+//            if (seconds < 10) {
+//                seconds = "0" + seconds;
+//            }
+//            //拼接年月日时分秒
+//            var date_str = year + "年" + month + "月" + day + "日" + "  " + week + " " + hours + ":" + minutes + ":" + seconds + "";
+//            //显示在id为showtimes的容器里
+//            document.getElementById("show_time").innerHTML = date_str;
+//        }
+//
+//
+//        //设置1秒调用一次show_cur_times函数
+//        setInterval("show_cur_times()", 100);
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <div class="top_row">
+        <div id="title_company">
+            绵阳市新科汽车检验服务有限公司
+        </div>
+        <div id="show_time">
+        </div>
+    </div>
+    <div class="content">
+        <div class="content_row" id="scroll_row">
+            <ul>
+                <li>
+                    【 欢迎光临】尊敬的车主您好，欢迎您到德阳捷运车检办理年审业务.
+                </li>
+                <li>
+                    【 欢迎光临】尊敬的车主您好，欢迎您到德阳捷运车检办理年审业务.
+                </li>
+                <li>
+                    【 欢迎光临】尊敬的车主您好，欢迎您到德阳捷运车检办理年审业务.
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="scroll_part">
+            <div class="content_scroll" id="firstReview">
+                <div class="flag">等待一审车辆</div>
+                <div class="car_no">由站内工作人员审核<span class="span_type4">当前车辆数：0</span></div>
+                <div class="car_scroll">
+                    <div class="start_scroll">
+                        <div class="span_type1">川BZ9591</div>
+                        <div class="span_type2">小型汽车</div>
+                        <div class="span_type1">川BZ9592</div>
+                        <div class="span_type2">小型汽车</div>
+                        <div class="span_type1">川BZ9593</div>
+                        <div class="span_type2">小型汽车</div>
+                        <div class="span_type1">川BZ9594</div>
+                        <div class="span_type2">小型汽车</div>
+                        <div class="span_type1">川BZ9595</div>
+                        <div class="span_type2">小型汽车</div>
+                        <div class="span_type1">川BZ9596</div>
+                        <div class="span_type2">小型汽车</div>
+                        <div class="span_type1">川BZ9597</div>
+                        <div class="span_type2">小型汽车</div>
+                        <div class="span_type1">川BZ9598</div>
+                        <div class="span_type2">小型汽车</div>
+                        <div class="span_type1">川BZ9599</div>
+                        <div class="span_type2">小型汽车</div>
+                        <div class="span_type1">川BZ95910</div>
+                        <div class="span_type2">小型汽车</div>
+                        <div class="span_type1">川BZ95911</div>
+                        <div class="span_type2">小型汽车</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content_scroll" id="secondReview">
+                <div class="flag">等待二审车辆</div>
+                <div class="scroll_part"></div>
+                <div class="car_no">由交警部门远程审核<span class="span_type4">当前车辆数：0</span></div>
+                <div class="car_scroll">
+                    <div class="start_scroll">
+                        <div class="span_type1">川BZ9595</div>
+                        <div class="span_type2">小型汽车</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content_scroll" id="platform">
+                <div class="flag">等待综合平台审核</div>
+                <div class="car_no">由公安系统自动审核<span class="span_type4">当前车辆数：0</span></div>
+                <div class="car_scroll">
+                    <div class="start_scroll">
+                        <span class="span_type3">川BZ9591</span>
+                        <span class="span_type3">川BZ9592</span>
+                        <span class="span_type3">川BZ9593</span>
+                        <span class="span_type3">川BZ9594</span>
+                        <span class="span_type3">川BZ9595</span>
+                        <span class="span_type3">川BZ9596</span>
+                        <span class="span_type3">川BZ9597</span>
+                        <span class="span_type3">川BZ9598</span>
+                        <span class="span_type3">川BZ9599</span>
+                        <span class="span_type3">川BZ95910</span>
+                        <span class="span_type3">川BZ95911</span>
+                        <span class="span_type3">川BZ95912</span>
+                        <span class="span_type3">川BZ95913</span>
+                        <span class="span_type3">川BZ95914</span>
+                        <span class="span_type3">川BZ95915</span>
+                        <span class="span_type3">川BZ95916</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content_scroll" id="print">
+                <div class="flag">等待打印车辆</div>
+                <div class="car_no"><span class="span_type5"></span><span class="span_type4">当前车辆数：0</span></div>
+                <div class="car_scroll">
+                    <div class="start_scroll">
+                        <span class="span_type3">川BZ9595</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content_scroll" id="noPass">
+                <div class="flag">审核未通过车辆</div>
+                <div class="car_no"><span class="span_type5"></span><span class="span_type4">当前车辆数：0</span></div>
+                <div class="car_scroll">
+                    <div class="start_scroll">
+                        <div class="span_type1">川BZ9595</div>
+                        <div class="span_type2">小型汽车</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_row">
+        尊敬的车主您好！欢迎您到德阳捷运车检办理年审业务，目前本站可对四轮以上的机动车办理年审业务。（注：危货车与校车除外）
+
+        工作时间：周一至周六 8:00-17:00（中午不休息）
+
+        业务流程：外检→缴费→填表→资料录入→等待审核→制证（一站式服务台办理）
+
+        本着“公平公正”原则开展检验工作，如有疑问请拔打捷运咨询电话：0838-2606088.
+
+        免费WIFI：帐号：jy2；密码：jy888888
+
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    setCss();
+    scroll_car();
+    show_cur_times();
+    //scroll_news();
+</script>

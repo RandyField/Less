@@ -1,0 +1,136 @@
+@import url("ledstylePara.less");
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: Black;
+  color: White;
+}
+
+#firstReview {
+  display: @firstReview;
+}
+
+#secondReview {
+  display: @secondReview;
+}
+
+#platform {
+  display: @platform;
+}
+
+#print {
+  display: @print;
+}
+
+#noPass {
+  display: @noPass;
+}
+
+.container {
+  border: 1px solid green;
+  /*可变*/
+  width: @LedWidth;
+  /*可变*/
+  height: @LedHeight;
+}
+
+.container .top_row {
+  text-align: center;
+}
+
+.container .top_row #title_company {
+  font-size: @CompanyFontSize;
+  font-family: 微软雅黑;
+  display: inline;
+  margin: auto;
+}
+
+.container .content .content_row {
+  width: 100%;
+  overflow: hidden;
+  font-size: @TopScrollFontSize;
+}
+
+.container .content .content_row ul {
+  line-height: 2em;
+  margin: 0;
+}
+
+.container .content .content_row ul li {
+  float: left;
+  list-style-type: none;
+}
+
+.container .top_row #show_time {
+  display: inline;
+  font-size: @TimeFontSize;
+}
+
+.container .content {
+  border-top: 1px solid yellow;
+}
+
+.container .content .scroll_part .content_scroll {
+  border: 1px solid red;
+  text-align: center;
+  overflow: hidden;
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  /*可变*/
+  width: @ColumnWidth;
+}
+
+.container .content .scroll_part {
+  font-size: @TableFontSize;
+}
+
+.container .content .scroll_part .content_scroll .flag {
+  border-bottom: 1px solid white;
+  font-weight: bolder;
+}
+
+.container .content .scroll_part .content_scroll .car_scroll {
+  /*line-height: 20px;*/
+  overflow: hidden;
+  /*可变*/
+  height: @ColumnHeight;
+}
+
+.container .content .scroll_part .content_scroll .car_no {
+  font-size: @TableCarNoFontSize;
+  height: 3em;
+}
+
+.container .bottom_row {
+  font-size: @BottomFontSize;
+  width: 100%;
+  clear: both;
+}
+
+.span_type1 {
+  border: 1px solid white;
+  width: 50%;
+  float: left;
+}
+
+.span_type2 {
+  border: 1px solid white;
+  width: auto;
+}
+
+.span_type3 {
+  display: block;
+  border: 1px solid white;
+  width: 100%;
+}
+
+.span_type4 {
+  display: block;
+}
+
+.span_type5 {
+  display: block;
+  height: 0.6em;
+}
